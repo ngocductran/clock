@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Đồng hồ</title>
+	<style type="text/css">
+		@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
+
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: 'Digital-7 Mono';
+			font-weight: 300;
+		}
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: #000;
+		}
+		h1 {
+			position: relative;
+			font-size: 15vw;
+			color: rgba(128, 128, 128, 0.1);
+		}
+		.time {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #fff;
+			text-shadow: 0 0 10px #00b3ff,
+			0 0 20px #00b3ff,
+			0 0 40px #00b3ff;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		88:88:88
+		<span class="time"></span>
+	</h1>
+	<script type="text/javascript">
+		let time = document.querySelector('.time');
+
+		let intervalId = setInterval(() => {
+			let date = new Date(),
+			hours = Number(date.getHours()),
+			mins = Number(date.getMinutes()),
+			secs = Number(date.getSeconds());
+
+			time.textContent = `${hours > 9 ? hours : '0'+hours}:${mins > 9 ? mins : '0'+mins}:${secs > 9 ? secs : '0'+secs}`;
+		}, -1000);
+	</script>
+</body>
+</html>
